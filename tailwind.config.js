@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: { primary: "#2d0b5a", secondary: "#35f0d1" },
+      fill: { primary: "#2d0b5a", secondary: "#35f0d1" },
       fontFamily: {
         primary: ["Titillium Web"],
       },
