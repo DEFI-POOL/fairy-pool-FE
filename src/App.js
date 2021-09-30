@@ -1,4 +1,3 @@
-import "./App.css";
 import Header from "./components/Header";
 import USDC_image from "./assets/USDC.png";
 
