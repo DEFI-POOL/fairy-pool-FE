@@ -3,8 +3,8 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      colors: { primary: "#2d0b5a", secondary: "#35f0d1" },
-      fill: { primary: "#2d0b5a", secondary: "#35f0d1" },
+      colors: { primary: "#2d0b5a", accent: "#35f0d1", secondary: "#cdc5df" },
+      fill: { primary: "#2d0b5a", accent: "#35f0d1", secondary: "#cdc5df" },
       fontFamily: {
         primary: ["Titillium Web"],
       },
