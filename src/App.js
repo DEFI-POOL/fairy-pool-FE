@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import USDC_image from "./assets/USDC.png";
 import { ReactComponent as Chevron } from "./assets/001-chevron.svg";
+import Countdown from "./components/Countdown";
 
 function App() {
   return (
@@ -37,7 +38,14 @@ function App() {
             <div className="text-secondary">Prize #96</div>
             <div className="text-white text-5xl font-bold">$69,420</div>
           </div>
-          <div className="text-secondary text-lg">Will be awarded</div>
+          <div>
+            <div className="text-secondary text-xl mb-2 font-thin">
+              Will be awarded
+            </div>
+            <Countdown
+              countDownDate={new Date("Jan 5, 2022 15:37:25").getTime()}
+            />
+          </div>
         </div>
       </div>
     </div>
