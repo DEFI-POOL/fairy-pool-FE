@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="min-h-screen bg-primary font-primary">
       <Header />
-      <div className="px-5">
+      <div className="px-64 mt-12">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <img src={USDC_image} className="w-14" />
@@ -33,7 +33,7 @@ function App() {
             Deposit
           </div>
         </div>
-        <div className="mt-8 rounded-lg bg-gradient-to-r from-pink-600 to-purple-800 flex justify-between items-center px-14 py-8">
+        <div className="mt-8 rounded-lg shadow-2xl bg-gradient-to-r from-pink-600 to-purple-800 flex justify-between items-center px-14 py-8">
           <div>
             <div className="text-secondary">Prize #96</div>
             <div className="text-white text-5xl font-bold">$69,420</div>
@@ -43,8 +43,21 @@ function App() {
               Will be awarded
             </div>
             <Countdown
-              countDownDate={new Date("Jan 5, 2022 15:37:25").getTime()}
+              countDownDate={new Date("Oct 5, 2021 15:37:25").getTime()}
             />
+          </div>
+        </div>
+        <div className="mt-8 rounded-lg bg-purple-900 px-8 py-8">
+          <div className="text-white font-extrabold text-2xl mb-8">
+            Pool's stats
+          </div>
+          <div className="flex justify-between items-center mt-4">
+            <div className="text-secondary text-xl">Total deposits</div>
+            <div className="text-secondary text-xl">$54,330</div>
+          </div>
+          <div className="flex justify-between items-center mt-4">
+            <div className="text-secondary text-xl">Yield source</div>
+            <div className="text-secondary text-xl">Uniswap</div>
           </div>
         </div>
       </div>
