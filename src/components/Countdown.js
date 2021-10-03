@@ -43,7 +43,7 @@ export default function Countdown({ countDownDate }) {
       <div className="mr-2">
         <div>
           {digitsArr.map((digit) => (
-            <span className="text-accent font-black text-lg bg-gray-50 bg-opacity-25 px-2 py-1 mx-px rounded">
+            <span className="text-accent font-semibold text-lg bg-gray-50 bg-opacity-25 px-2 py-1 mx-px rounded">
               {digit}
             </span>
           ))}
@@ -59,9 +59,9 @@ export default function Countdown({ countDownDate }) {
     <div className="flex">
       {renderDigits(countDownNumbers[0], "DAY")}
       {renderDigits(countDownNumbers[1], "HR")}
-      <div className="text-accent font-black text-lg mr-2">:</div>
+      <div className="text-accent font-semibold text-lg mr-2">:</div>
       {renderDigits(countDownNumbers[2], "MIN")}
-      <div className="text-accent font-black text-lg mr-2">:</div>
+      <div className="text-accent font-semibold text-lg mr-2">:</div>
       {renderDigits(countDownNumbers[3], "SEC")}
     </div>
   );

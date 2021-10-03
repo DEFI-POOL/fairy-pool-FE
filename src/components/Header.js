@@ -7,16 +7,18 @@ export default function Header() {
       <div className="flex items-center">
         <img
           src={logo}
-          className="w-14 mr-3"
+          className="w-10 mr-3"
           style={{
             filter:
-              "invert(87%) sepia(23%) saturate(147%) hue-rotate(210deg) brightness(102%) contrast(99%)",
+              "invert(27%) sepia(46%) saturate(3914%) hue-rotate(314deg) brightness(88%) contrast(96%)",
           }}
         />
-        <div className="text-3xl font-black text-purple-100">Fairy Pool</div>
+        <div className="text-4xl font-bold bg-gradient-to-b from-pink-400 to-pink-700 bg-clip-text text-transparent">
+          Fairy Pool
+        </div>
       </div>
       <div className="flex justify-between items-center">
-        <div className="rounded-full border-2 border-accent px-6 py-1 text-xs text-accent font-black cursor-pointer">
+        <div className="rounded-full border-2 border-accent px-6 py-1 text-sm text-accent font-semibold cursor-pointer">
           Connect Wallet
         </div>
         <SettingsIcon className="w-5 ml-3 cursor-pointer fill-accent" />
