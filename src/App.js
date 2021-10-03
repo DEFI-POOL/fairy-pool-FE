@@ -49,19 +49,28 @@ function App() {
         </div>
         <div className="mt-8 rounded-lg bg-purple-900 px-8 py-8">
           <div className="text-white font-semibold text-2xl mb-8">
-            Pool's stats
+            Pool stats
           </div>
           <div className="flex justify-between items-center mt-4">
             <div className="text-secondary text-xl font-light">
-              Total deposits
+              Total deposits:
             </div>
             <div className="text-white text-xl">$54,330</div>
           </div>
           <div className="flex justify-between items-center mt-4">
             <div className="text-secondary text-xl font-light">
-              Yield source
+              Yield source:
             </div>
             <div className="text-white text-xl">Uniswap</div>
+          </div>
+          <div className="mb-3 mt-5 bg-clip-border bg-pink-600">
+            <hr className="border-opacity-0" />
+          </div>
+          <div className="flex justify-between items-center mt-4">
+            <div className="text-secondary text-xl font-light">
+              Effective APR:
+            </div>
+            <div className="text-white text-xl">6.69%</div>
           </div>
         </div>
       </div>
