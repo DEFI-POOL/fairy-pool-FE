@@ -6,6 +6,38 @@ import prize_img from "./assets/wallet-dev.png";
 
 function App() {
   const prizeSplit = [25000, 11105, 11105, 11105, 11105];
+
+  const genRandomTx = (len) => {
+    const genRandomString = (strLen) => {
+      let result = "";
+      let characters =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      let charactersLength = characters.length;
+      for (let i = 0; i < strLen; i++) {
+        result += characters.charAt(
+          Math.floor(Math.random() * charactersLength)
+        );
+      }
+      return result;
+    };
+
+    let txs = [];
+    for (let i = 0; i < len; i++) {
+      const tx = {
+        address: "0x" + genRandomString(40),
+        amount: Math.floor(Math.random() * 50000),
+      };
+      console.log(tx.address);
+      txs.push(tx);
+    }
+
+    return txs;
+  };
+
+  const truncate = (str, maxChar) => {
+    return str.length > maxChar + 3 ? str.substring(0, maxChar) + "..." : str;
+  };
+
   return (
     <div className="min-h-screen bg-primary font-primary">
       <Header />
@@ -103,6 +135,29 @@ function App() {
             </div>
             <div className="text-white text-xl">6.69%</div>
           </div>
+        </div>
+        <div className="mt-8 rounded-lg bg-purple-900 p-8">
+          <div className="text-secondary">DEPOSITORS</div>
+          <div className="text-white font-semibold text-5xl mb-8">495</div>
+          <table className="w-full text-left">
+            <tr>
+              <th className="text-white font-semibold">Address</th>
+              <th className="text-white font-semibold">Deposit</th>
+            </tr>
+            {genRandomTx(5).map((tx) => (
+              <tr>
+                <td className="text-white font-light text-xl">
+                  {truncate(tx.address, 10)}
+                </td>
+                <td className="text-white font-light text-xl">
+                  ${tx.amount.toLocaleString()}
+                </td>
+                <td className="text-secondary font-light text-right cursor-pointer hover:text-white">
+                  View Tx
+                </td>
+              </tr>
+            ))}
+          </table>
         </div>
       </div>
     </div>
