@@ -31,7 +31,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="rounded-full border-2 border-accent text-2xl text-accent px-16 py-2 font-semibold cursor-pointer">
+          <div className="rounded-full border-2 border-accent text-2xl text-accent px-16 py-2 font-semibold cursor-pointer hover:bg-accent hover:text-primary">
             Deposit
           </div>
         </div>
