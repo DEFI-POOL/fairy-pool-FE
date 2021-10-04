@@ -93,22 +93,26 @@ function App() {
             <img src={prize_img} className="w-80" />
             <div className="text-white text-4xl font-semibold">$69,420</div>
           </div>
-          {prizeSplit.map((prize, index) => (
-            <>
-              <div className="flex justify-between items-center mt-4">
-                <div className="text-secondary text-xl font-light">
-                  {index === 0 ? "Grand winner:" : "Runner up:"}
-                </div>
-                <div className="text-white text-xl">
-                  ${prize.toLocaleString()}
-                </div>
+          <div className="flex justify-between items-center mt-4">
+            <div className="text-xl font-light bg-clip-text text-transparent bg-rainbow-gradient animate-flashy-text">
+              Grand winner:
+            </div>
+            <div className="text-xl bg-clip-text text-transparent bg-rainbow-gradient animate-flashy-text">
+              ${prizeSplit[0].toLocaleString()}
+            </div>
+          </div>
+          <div className="my-3 bg-clip-border bg-pink-600">
+            <hr className="border-opacity-0" />
+          </div>
+          {prizeSplit.slice(1).map((prize) => (
+            <div className="flex justify-between items-center mt-4">
+              <div className="text-secondary text-xl font-light">
+                Runner up:
               </div>
-              {index === 0 ? (
-                <div className="my-3 bg-clip-border bg-pink-600">
-                  <hr className="border-opacity-0" />
-                </div>
-              ) : null}
-            </>
+              <div className="text-white text-xl">
+                ${prize.toLocaleString()}
+              </div>
+            </div>
           ))}
         </div>
         <div className="mt-8 rounded-lg bg-purple-900 p-8">
