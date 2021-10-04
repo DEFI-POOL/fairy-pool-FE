@@ -3,6 +3,7 @@ import USDC_image from "./assets/USDC.png";
 import { ReactComponent as Chevron } from "./assets/001-chevron.svg";
 import Countdown from "./components/Countdown";
 import prize_img from "./assets/wallet-dev.png";
+import yield_logo from "./assets/yield_logo.png";
 
 function App() {
   const prizeSplit = [25000, 11105, 11105, 11105, 11105];
@@ -124,7 +125,10 @@ function App() {
             <div className="text-secondary text-xl font-light">
               Yield source:
             </div>
-            <div className="text-white text-xl">Uniswap</div>
+            <div className="text-white text-xl">
+              <img src={yield_logo} className="w-12 inline-block" />
+              Uniswap
+            </div>
           </div>
           <div className="bg-clip-border bg-pink-600 mt-4">
             <hr className="border-opacity-0" />
