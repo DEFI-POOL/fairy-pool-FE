@@ -2,8 +2,10 @@ import Header from "./components/Header";
 import USDC_image from "./assets/USDC.png";
 import { ReactComponent as Chevron } from "./assets/001-chevron.svg";
 import Countdown from "./components/Countdown";
+import prize_img from "./assets/wallet-dev.png";
 
 function App() {
+  const prizeSplit = [25000, 11105, 11105, 11105, 11105];
   return (
     <div className="min-h-screen bg-primary font-primary">
       <Header />
@@ -47,7 +49,36 @@ function App() {
             />
           </div>
         </div>
-        <div className="mt-8 rounded-lg bg-purple-900 px-8 py-8">
+        <div className="mt-8 rounded-lg bg-purple-900 p-8">
+          <div className="text-white text-center font-semibold text-2xl mb-1">
+            USDC Prize #96
+          </div>
+          <div className="text-secondary text-center font-light mb-5">
+            Prize split between {prizeSplit.length} winners
+          </div>
+          <div className="flex flex-col	items-center mb-8">
+            <img src={prize_img} className="w-80" />
+            <div className="text-white text-4xl font-semibold">$69,420</div>
+          </div>
+          {prizeSplit.map((prize, index) => (
+            <>
+              <div className="flex justify-between items-center mt-4">
+                <div className="text-secondary text-xl font-light">
+                  {index === 0 ? "Grand winner:" : "Runner up:"}
+                </div>
+                <div className="text-white text-xl">
+                  ${prize.toLocaleString()}
+                </div>
+              </div>
+              {index === 0 ? (
+                <div className="my-3 bg-clip-border bg-pink-600">
+                  <hr className="border-opacity-0" />
+                </div>
+              ) : null}
+            </>
+          ))}
+        </div>
+        <div className="mt-8 rounded-lg bg-purple-900 p-8">
           <div className="text-white font-semibold text-2xl mb-8">
             Pool stats
           </div>
@@ -63,7 +94,7 @@ function App() {
             </div>
             <div className="text-white text-xl">Uniswap</div>
           </div>
-          <div className="mb-3 mt-5 bg-clip-border bg-pink-600">
+          <div className="bg-clip-border bg-pink-600 mt-4">
             <hr className="border-opacity-0" />
           </div>
           <div className="flex justify-between items-center mt-4">
