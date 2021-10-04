@@ -150,10 +150,10 @@ function App() {
             </tr>
             {genRandomTx(5).map((tx) => (
               <tr>
-                <td className="text-white font-light text-xl">
+                <td className="text-white font-extralight text-xl">
                   {truncate(tx.address, 10)}
                 </td>
-                <td className="text-white font-light text-xl">
+                <td className="text-white font-extralight text-xl">
                   ${tx.amount.toLocaleString()}
                 </td>
                 <td className="text-secondary font-light text-right cursor-pointer hover:text-white">
