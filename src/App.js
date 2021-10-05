@@ -78,7 +78,7 @@ function App() {
               Will be awarded
             </div>
             <Countdown
-              countDownDate={new Date("Oct 5, 2021 15:37:25").getTime()}
+              countDownDate={new Date("Oct 12, 2021 15:37:25").getTime()}
             />
           </div>
         </div>

@@ -7,8 +7,8 @@ export default function Countdown({ countDownDate }) {
     return Math.max(Math.floor(Math.log10(Math.abs(number))), 0) + 1;
   };
 
-  const getDigit = (number, n, fromLeft) => {
-    const location = fromLeft ? getDigitCount(number) + 1 - n : n;
+  const getDigit = (number, n, fromLeft, numDigits) => {
+    const location = fromLeft ? numDigits + 1 - n : n;
     return Math.floor((number / Math.pow(10, location - 1)) % 10);
   };
 
@@ -37,7 +37,16 @@ export default function Countdown({ countDownDate }) {
   }, []);
 
   const renderDigits = (number, unit) => {
-    const digitsArr = [getDigit(number, 2, false), getDigit(number, 1, false)];
+    let digitsArr = [];
+    const numDigits = getDigitCount(number);
+
+    if (numDigits === 1) {
+      digitsArr.push(0);
+    }
+
+    for (let i = 1; i <= numDigits; i++) {
+      digitsArr.push(getDigit(number, i, true, numDigits));
+    }
 
     return (
       <div className="mr-2">
