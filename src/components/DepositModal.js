@@ -8,11 +8,11 @@ export default function DepositModal({ close, depositAmount }) {
   return (
     <div
       onClick={close}
-      className="fixed w-screen h-screen inset-0 backdrop-blur-sm backdrop-filter flex items-center justify-center"
+      className="fixed w-screen h-screen inset-0 backdrop-filter flex items-center justify-center animate-fadeInBlur"
     >
       <div
         onClick={(event) => event.stopPropagation()}
-        className="rounded-lg bg-gradient-to-br from-purple-900 via-purple-800 to-purple-600 shadow-2xl py-10 px-16 flex flex-col items-center"
+        className="rounded-lg bg-gradient-to-br from-purple-900 via-purple-800 to-purple-600 shadow-2xl py-10 px-16 flex flex-col items-center animate-moveUp"
       >
         <img src={USDC_image} className="w-14" />
         <div className="text-white font-semibold text-xl mt-2">

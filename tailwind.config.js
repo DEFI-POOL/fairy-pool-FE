@@ -17,17 +17,27 @@ module.exports = {
       },
       animation: {
         "flashy-text": "scrollBg 15s steps(60) infinite",
+        fadeInBlur:
+          "fadeInBlur 0.2s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards",
+        moveUp: "moveUp 0.2s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards",
       },
       keyframes: {
         scrollBg: {
-          "0%": {
+          "0%, 100%": {
             "background-position": "0 50%",
           },
           "50%": {
             "background-position": "100% 50%",
           },
-          "100%": {
-            "background-position": "0 50%",
+        },
+        fadeInBlur: {
+          to: {
+            "backdrop-filter": "blur(4px)",
+          },
+        },
+        moveUp: {
+          from: {
+            transform: "scale(.8) translateY(1000px)",
           },
         },
       },
