@@ -1,4 +1,5 @@
 import USDC_image from "../assets/USDC.png";
+import winning from "../assets/online-cryptocurrency-exchange-3327982-2793773.webp";
 
 export default function DepositModal({ close }) {
   return (
@@ -14,14 +15,25 @@ export default function DepositModal({ close }) {
         <div className="text-white font-semibold text-xl mt-2">
           Deposit into the USDC Pool
         </div>
-        <div className="w-full mt-16 text-accent">Amount</div>
+        <img src={winning} className="w-64 mt-6" />
+        <div className="w-full text-accent">Amount</div>
         <input
           type="number"
           autoFocus
           className="outline-none ring rounded-full pl-4 py-1 bg-purple-900 text-white text-3xl mt-2"
         />
-        <div className="rounded-full border-2 border-accent px-8 py-1 text-xl text-accent font-semibold cursor-pointer hover:bg-accent hover:text-primary mt-8">
-          Continue
+        <div className="flex justify-between items-center w-full mt-6">
+          <div className="ml-7">
+            <div className="text-xs font-light text-secondary">
+              Your winning odds:
+            </div>
+            <div className="text-xl bg-clip-text text-transparent bg-rainbow-gradient animate-flashy-text">
+              1 in 43,4343
+            </div>
+          </div>
+          <div className="rounded-full border-2 border-accent px-8 py-1 text-xl text-accent font-semibold cursor-pointer hover:bg-accent hover:text-primary">
+            Continue
+          </div>
         </div>
       </div>
     </div>
