@@ -178,7 +178,9 @@ function App() {
           </table>
         </div>
       </div>
-      {showModal && <DepositModal close={() => setShowModal(false)} />}
+      {showModal && (
+        <DepositModal close={() => setShowModal(false)} depositAmount={69420} />
+      )}
     </div>
   );
 }

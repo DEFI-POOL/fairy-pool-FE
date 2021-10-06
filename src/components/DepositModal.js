@@ -1,7 +1,10 @@
+import { useState } from "react";
 import USDC_image from "../assets/USDC.png";
 import winning from "../assets/online-cryptocurrency-exchange-3327982-2793773.webp";
 
-export default function DepositModal({ close }) {
+export default function DepositModal({ close, depositAmount }) {
+  const [amount, setAmount] = useState(null);
+
   return (
     <div
       onClick={close}
@@ -20,6 +23,9 @@ export default function DepositModal({ close }) {
         <input
           type="number"
           autoFocus
+          min="0"
+          value={amount}
+          onChange={(event) => setAmount(event.target.value)}
           className="outline-none ring rounded-full pl-4 py-1 bg-purple-900 text-white text-3xl mt-2"
         />
         <div className="flex justify-between items-center w-full mt-6">
@@ -28,7 +34,7 @@ export default function DepositModal({ close }) {
               Your winning odds:
             </div>
             <div className="text-xl bg-clip-text text-transparent bg-rainbow-gradient animate-flashy-text">
-              1 in 43,4343
+              1 in {Math.round((depositAmount / amount) * 100) / 100}
             </div>
           </div>
           <div className="rounded-full border-2 border-accent px-8 py-1 text-xl text-accent font-semibold cursor-pointer hover:bg-accent hover:text-primary">
