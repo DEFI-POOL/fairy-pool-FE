@@ -3,16 +3,21 @@ import USDC_image from "../assets/USDC.png";
 import winning from "../assets/online-cryptocurrency-exchange-3327982-2793773.webp";
 
 export default function DepositModal({ close, depositAmount }) {
+  const [isStartTrans, setIsStartTrans] = useState(true);
   const [amount, setAmount] = useState(null);
 
   return (
     <div
-      onClick={close}
+      onClick={() => setIsStartTrans(false)}
       className="fixed w-screen h-screen inset-0 backdrop-filter flex items-center justify-center animate-fadeInBlur"
     >
       <div
         onClick={(event) => event.stopPropagation()}
-        className="rounded-lg bg-gradient-to-br from-purple-900 via-purple-800 to-purple-600 shadow-2xl py-10 px-16 flex flex-col items-center animate-moveUp"
+        className={
+          "rounded-lg bg-gradient-to-br from-purple-900 via-purple-800 to-purple-600 shadow-2xl py-10 px-16 flex flex-col items-center " +
+          (isStartTrans ? "animate-moveUp" : "animate-moveDown")
+        }
+        onAnimationEnd={(e) => (isStartTrans ? null : close())}
       >
         <img src={USDC_image} className="w-14" />
         <div className="text-white font-semibold text-xl mt-2">

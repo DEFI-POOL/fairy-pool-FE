@@ -20,6 +20,8 @@ module.exports = {
         fadeInBlur:
           "fadeInBlur 0.2s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards",
         moveUp: "moveUp 0.2s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards",
+        moveDown:
+          "moveDown 0.2s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards",
       },
       keyframes: {
         scrollBg: {
@@ -37,7 +39,12 @@ module.exports = {
         },
         moveUp: {
           from: {
-            transform: "scale(.8) translateY(1000px)",
+            transform: "scale(0.8) translateY(1000px)",
+          },
+        },
+        moveDown: {
+          to: {
+            transform: "scale(0.8) translateY(1000px)",
           },
         },
       },
