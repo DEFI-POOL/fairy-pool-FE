@@ -76,10 +76,4 @@ export const getCurrentWalletConnected = async () => {
       ),
     };
   }
-
-
-
-
-
-
 }
