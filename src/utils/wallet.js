@@ -26,11 +26,17 @@ export const connectWallet = async () => {
                 {" "}
                 🦊{" "}
                 <a target="_blank" href={`https://metamask.io/download.html`}>
-                  Please, follow this link to quickly set up metamask(a virtual Ethereum wallet). 
+                  Please, follow this link to quickly set up metamask, a virtual Ethereum wallet. 
                 </a>
               </p>
             </span>
           ),
         };
       }
+}
+
+// For an already connected wallet upon browser refresh
+
+export const getCurrentWalletConnected = async () => {
+  
 }
