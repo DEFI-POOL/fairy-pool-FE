@@ -33,7 +33,7 @@ export default function Header() {
           setStatus("You're all set!!! Deposit! Win pool interest! Never Lose!");
         } else {
           setWallet("");
-          setStatus("🦊 Connect to Metamask using the 'Connect wallet' button.");
+          setStatus("🦊 Connect to Metamask using this button.");
         }
       });
     } else {
@@ -70,12 +70,13 @@ export default function Header() {
           <div className="text-sm text-secondary font-semibold"></div>
           
           {walletAddress.length > 0 ? (
-            <div className="rounded-full border-2 border-accent px-6 py-1 text-sm text-accent font-semibold cursor-pointer hover:bg-accent hover:text-primary">
-              `${"Connected: "  +
-              String(walletAddress).substring(0, 6) +
+            <div
+            className="rounded-full border-2 border-accent px-6 py-1 text-sm text-accent font-semibold cursor-pointer hover:bg-accent hover:text-primary">
+             Connected:   
+              {String(walletAddress).substring(0, 6) +
               "..." +
-              String(walletAddress).substring(38)}`
-            </div> 
+              String(walletAddress).substring(38)}
+              </div>
         ) : (
           <div
             className="rounded-full border-2 border-accent px-6 py-1 text-sm text-accent font-semibold cursor-pointer hover:bg-accent hover:text-primary"
@@ -86,5 +87,7 @@ export default function Header() {
         <SettingsIcon className="w-5 ml-3 cursor-pointer fill-accent" />
       </div>
     </div>
+   
   );
+  
 }
