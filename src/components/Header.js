@@ -1,8 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ReactComponent as SettingsIcon } from "../assets/001-settings.svg";
 import logo from "../assets/logo.png";
-import Web3 from "web3";
-import { useEffect, useState } from "react";
 import { connectWallet, getCurrentWalletConnected } from "../utils/wallet";
 
 export default function Header() {
@@ -68,13 +66,20 @@ export default function Header() {
         </div>
       </div>
       <div className="flex justify-between items-center">
+      
           <div className="text-sm text-secondary font-semibold"></div>
-        
+          {walletAddress.length > 0 ? (
+          "Connected: " +
+          String(walletAddress).substring(0, 6) +
+          "..." +
+          String(walletAddress).substring(38)
+        ) : (
           <div
             className="rounded-full border-2 border-accent px-6 py-1 text-sm text-accent font-semibold cursor-pointer hover:bg-accent hover:text-primary"
             onClick={connectWalletPressed}>
             Connect Wallet
           </div>
+        )}
         <SettingsIcon className="w-5 ml-3 cursor-pointer fill-accent" />
       </div>
     </div>
