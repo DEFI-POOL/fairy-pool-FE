@@ -25,6 +25,33 @@ export default function Header() {
     setWallet(walletResponse.address);
   };
 
+  // wallet listener to update UI when wallet's state changes, 
+  // such as when the user disconnects or switches accounts.
+  function addWalletListener() {
+    if (window.ethereum) {
+      window.ethereum.on("accountsChanged", (accounts) => {
+        if (accounts.length > 0) {
+          setWallet(accounts[0]);
+          setStatus("You're all set!!! Deposit! Win pool interest! Never Lose!");
+        } else {
+          setWallet("");
+          setStatus("🦊 Connect to Metamask using the 'Connect wallet' button.");
+        }
+      });
+    } else {
+      setStatus(
+        <p>
+          {" "}
+          🦊{" "}
+          <a target="_blank" href={`https://metamask.io/download.html`}>
+          Please, follow this link to quickly set up metamask, a virtual Ethereum wallet.
+          </a>
+        </p>
+      );
+    }
+  }
+
+
   return (
     <div className="h-16 px-5 flex justify-between items-center pt-8">
       <div className="flex items-center">
