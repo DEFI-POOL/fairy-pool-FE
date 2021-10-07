@@ -9,6 +9,11 @@ export const connectWallet = async () => {
               address: addressArray[0],
             };
             return obj;
+          } catch (err) {
+            return {
+              address: "",
+              status: "😥 " + err.message,
+            };
           }
 
 
