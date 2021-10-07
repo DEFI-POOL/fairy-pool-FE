@@ -10,6 +10,14 @@ export default function Header() {
    const [walletAddress, setWallet] = useState("");
    const [status, setStatus] = useState("");
 
+  useEffect(async () => {
+    const {address, status} = await getCurrentWalletConnected();
+    setWallet(address)
+    setStatus(status);
+
+    addWalletListener();
+  }, []);
+
   return (
     <div className="h-16 px-5 flex justify-between items-center pt-8">
       <div className="flex items-center">
