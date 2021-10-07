@@ -51,7 +51,7 @@ export const getCurrentWalletConnected = async () => {
       } else {
         return {
           address: "",
-          status: "🦊 Connect to Metamask using the top right button.",
+          status: "🦊 Connect to Metamask using the 'Connect wallet' button.",
         };
       }
     } catch (err) {
@@ -69,8 +69,7 @@ export const getCurrentWalletConnected = async () => {
             {" "}
             🦊{" "}
             <a target="_blank" href={`https://metamask.io/download.html`}>
-              You must install Metamask, a virtual Ethereum wallet, in your
-              browser.
+            Please, follow this link to quickly set up metamask, a virtual Ethereum wallet. 
             </a>
           </p>
         </span>
