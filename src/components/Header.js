@@ -2,6 +2,8 @@ import { useState } from "react";
 import { ReactComponent as SettingsIcon } from "../assets/001-settings.svg";
 import logo from "../assets/logo.png";
 import Web3 from "web3";
+import { useEffect, useState } from "react";
+import { connectWallet, getCurrentWalletConnected } from "../utils/wallet";
 
 export default function Header() {
   
