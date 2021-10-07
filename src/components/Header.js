@@ -68,11 +68,14 @@ export default function Header() {
       <div className="flex justify-between items-center">
       
           <div className="text-sm text-secondary font-semibold"></div>
+          
           {walletAddress.length > 0 ? (
-          "Connected: " +
-          String(walletAddress).substring(0, 6) +
-          "..." +
-          String(walletAddress).substring(38)
+            <div className="rounded-full border-2 border-accent px-6 py-1 text-sm text-accent font-semibold cursor-pointer hover:bg-accent hover:text-primary">
+              `${"Connected: "  +
+              String(walletAddress).substring(0, 6) +
+              "..." +
+              String(walletAddress).substring(38)}`
+            </div> 
         ) : (
           <div
             className="rounded-full border-2 border-accent px-6 py-1 text-sm text-accent font-semibold cursor-pointer hover:bg-accent hover:text-primary"
