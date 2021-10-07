@@ -19,6 +19,8 @@ module.exports = {
         "flashy-text": "scrollBg 15s steps(60) infinite",
         fadeInBlur:
           "fadeInBlur 0.2s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards",
+        fadeOutBlur:
+          "fadeOutBlur 0.2s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards",
         moveUp: "moveUp 0.2s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards",
         moveDown:
           "moveDown 0.2s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards",
@@ -33,8 +35,13 @@ module.exports = {
           },
         },
         fadeInBlur: {
+          from: {
+            "backdrop-filter": "blur(0px)",
+          },
+        },
+        fadeOutBlur: {
           to: {
-            "backdrop-filter": "blur(4px)",
+            "backdrop-filter": "blur(0px)",
           },
         },
         moveUp: {

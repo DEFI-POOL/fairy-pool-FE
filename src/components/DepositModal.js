@@ -9,7 +9,10 @@ export default function DepositModal({ close, depositAmount }) {
   return (
     <div
       onClick={() => setIsStartTrans(false)}
-      className="fixed w-screen h-screen inset-0 backdrop-filter flex items-center justify-center animate-fadeInBlur"
+      className={
+        "fixed w-screen h-screen inset-0 flex items-center justify-center backdrop-filter backdrop-blur-sm " +
+        (isStartTrans ? "animate-fadeInBlur" : "animate-fadeOutBlur")
+      }
     >
       <div
         onClick={(event) => event.stopPropagation()}
