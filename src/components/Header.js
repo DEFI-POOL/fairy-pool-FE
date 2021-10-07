@@ -6,7 +6,9 @@ import { useEffect, useState } from "react";
 import { connectWallet, getCurrentWalletConnected } from "../utils/wallet";
 
 export default function Header() {
-  
+   //State variables
+   const [walletAddress, setWallet] = useState("");
+   const [status, setStatus] = useState("");
 
   return (
     <div className="h-16 px-5 flex justify-between items-center pt-8">
