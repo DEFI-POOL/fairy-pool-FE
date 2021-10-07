@@ -18,6 +18,13 @@ export default function Header() {
     addWalletListener();
   }, []);
 
+  // connect wallet 
+  const connectWalletPressed = async () => {
+    const walletResponse = await connectWallet();
+    setStatus(walletResponse.status);
+    setWallet(walletResponse.address);
+  };
+
   return (
     <div className="h-16 px-5 flex justify-between items-center pt-8">
       <div className="flex items-center">
