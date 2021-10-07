@@ -72,7 +72,7 @@ export default function Header() {
         
           <div
             className="rounded-full border-2 border-accent px-6 py-1 text-sm text-accent font-semibold cursor-pointer hover:bg-accent hover:text-primary"
-          >
+            onClick={connectWalletPressed}>
             Connect Wallet
           </div>
         <SettingsIcon className="w-5 ml-3 cursor-pointer fill-accent" />
