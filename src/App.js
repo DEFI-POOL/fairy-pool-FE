@@ -7,6 +7,23 @@ import prize_img from "./assets/wallet-dev.png";
 import yield_logo from "./assets/yield_logo.png";
 import DepositModal from "./components/DepositModal";
 
+export const truncate = (fullStr, strLen, separator) => {
+  if (fullStr.length <= strLen) return fullStr;
+
+  separator = separator || "...";
+
+  var sepLen = separator.length,
+    charsToShow = strLen - sepLen,
+    frontChars = Math.ceil(charsToShow / 2),
+    backChars = Math.floor(charsToShow / 2);
+
+  return (
+    fullStr.substr(0, frontChars) +
+    separator +
+    fullStr.substr(fullStr.length - backChars)
+  );
+};
+
 function App() {
   const [showModal, setShowModal] = useState(false);
 
@@ -37,10 +54,6 @@ function App() {
     }
 
     return txs;
-  };
-
-  const truncate = (str, maxChar) => {
-    return str.length > maxChar + 3 ? str.substring(0, maxChar) + "..." : str;
   };
 
   return (
@@ -165,7 +178,7 @@ function App() {
             {genRandomTx(5).map((tx) => (
               <tr>
                 <td className="text-white font-extralight text-xl">
-                  {truncate(tx.address, 10)}
+                  {truncate(tx.address, 13)}
                 </td>
                 <td className="text-white font-extralight text-xl">
                   ${tx.amount.toLocaleString()}
