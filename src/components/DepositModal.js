@@ -45,9 +45,9 @@ export default function DepositModal({ close, depositAmount }) {
               1 in {Math.round((depositAmount / amount) * 100) / 100}
             </div>
           </div>
-          <div className="rounded-full border-2 border-accent px-8 py-1 text-xl text-accent font-semibold cursor-pointer hover:bg-accent hover:text-primary">
+          <button className="rounded-full border-2 border-accent px-8 py-1 text-xl text-accent font-semibold cursor-pointer hover:bg-accent hover:text-primary">
             Continue
-          </div>
+          </button>
         </div>
       </div>
     </div>
