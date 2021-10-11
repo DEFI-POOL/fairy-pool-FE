@@ -93,8 +93,8 @@ function App() {
             Deposit
           </div>
         </div>
-        <div className="mt-8 rounded-lg shadow-2xl bg-gradient-to-r from-pink-600 to-purple-800 px-14 py-8">
-          <div className="flex justify-between items-center">
+        <div className="mt-8 rounded-lg shadow-2xl bg-gradient-to-r from-pink-600 to-purple-800 overflow-hidden">
+          <div className="flex justify-between items-center px-14 py-8 bg-shiny-gradient animate-shine">
             <div>
               <div className="text-secondary">Prize #96</div>
               <div className="text-white text-5xl font-semibold">$69,420</div>
@@ -108,23 +108,23 @@ function App() {
               />
             </div>
           </div>
-          <div className="my-3 bg-clip-border bg-gray-400 my-8">
-            <hr className="border-opacity-0" />
+        </div>
+        <div className="my-5 bg-clip-border bg-gray-400">
+          <hr className="border-opacity-0" />
+        </div>
+        <div className="rounded-lg shadow-2xl px-8 py-4 flex justify-between items-center bg-purple-600">
+          <div>
+            <div className="text-secondary">Your deposit</div>
+            <div className="text-white text-3xl font-semibold">$435</div>
           </div>
-          <div className="flex justify-between items-center">
-            <div>
-              <div className="text-secondary">Your deposit</div>
-              <div className="text-white text-3xl font-semibold">$435</div>
-            </div>
-            <div
-              onClick={() => setShowWithdrawModal(true)}
-              className={
-                "rounded-full border-2 border-accent text-xl px-8 py-2 font-semibold cursor-pointer hover:bg-accent hover:text-primary " +
-                (showWithdrawModal ? "bg-accent text-primary" : "text-accent")
-              }
-            >
-              Withdraw
-            </div>
+          <div
+            onClick={() => setShowWithdrawModal(true)}
+            className={
+              "rounded-full border-2 border-accent text-xl px-8 py-2 font-semibold cursor-pointer hover:bg-accent hover:text-primary " +
+              (showWithdrawModal ? "bg-accent text-primary" : "text-accent")
+            }
+          >
+            Withdraw
           </div>
         </div>
         <div className="mt-8 rounded-lg bg-purple-900 p-8">

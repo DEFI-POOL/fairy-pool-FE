@@ -10,10 +10,13 @@ module.exports = {
       },
       backgroundSize: {
         "rainbow-gradient": "1000% auto",
+        "shiny-gradient": "300% 100%",
       },
       backgroundImage: {
         "rainbow-gradient":
           "linear-gradient(40deg,#ff9304,#ff04ea 10%,#9b4beb 20%,#0e8dd6 30%,#0bc6df 40%,#07d464 50%,#dfd105 60%,#ff04ab 78%,#8933eb 90%,#3b89ff)",
+        "shiny-gradient":
+          "linear-gradient(-45deg,rgba(0,0,0,0) 45%,rgba(255,255,255,0.3) 50%,rgba(0,0,0,0) 55%)",
       },
       animation: {
         "flashy-text": "scrollBg 15s steps(60) infinite",
@@ -24,6 +27,7 @@ module.exports = {
         moveUp: "moveUp 0.2s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards",
         moveDown:
           "moveDown 0.2s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards",
+        shine: "shine 3s infinite",
       },
       keyframes: {
         scrollBg: {
@@ -52,6 +56,11 @@ module.exports = {
         moveDown: {
           to: {
             transform: "scale(0.8) translateY(1000px)",
+          },
+        },
+        shine: {
+          "0%": {
+            "background-position": "right",
           },
         },
       },
