@@ -6,6 +6,7 @@ import Countdown from "./components/Countdown";
 import prize_img from "./assets/wallet-dev.png";
 import yield_logo from "./assets/yield_logo.png";
 import DepositModal from "./components/DepositModal";
+import WithdrawModal from "./components/WithdrawModal";
 
 export const truncate = (fullStr, strLen, separator) => {
   if (fullStr.length <= strLen) return fullStr;
@@ -25,7 +26,8 @@ export const truncate = (fullStr, strLen, separator) => {
 };
 
 function App() {
-  const [showModal, setShowModal] = useState(false);
+  const [showDepositModal, setShowDepositModal] = useState(false);
+  const [showWithdrawModal, setShowWithdrawModal] = useState(false);
 
   const prizeSplit = [25000, 11105, 11105, 11105, 11105];
 
@@ -82,27 +84,47 @@ function App() {
             </div>
           </div>
           <div
-            onClick={() => setShowModal(true)}
+            onClick={() => setShowDepositModal(true)}
             className={
               "rounded-full border-2 border-accent text-2xl px-16 py-2 font-semibold cursor-pointer hover:bg-accent hover:text-primary " +
-              (showModal ? "bg-accent text-primary" : "text-accent")
+              (showDepositModal ? "bg-accent text-primary" : "text-accent")
             }
           >
             Deposit
           </div>
         </div>
-        <div className="mt-8 rounded-lg shadow-2xl bg-gradient-to-r from-pink-600 to-purple-800 flex justify-between items-center px-14 py-8">
-          <div>
-            <div className="text-secondary">Prize #96</div>
-            <div className="text-white text-5xl font-semibold">$69,420</div>
-          </div>
-          <div>
-            <div className="text-secondary text-lg mb-2 font-extralight">
-              Will be awarded
+        <div className="mt-8 rounded-lg shadow-2xl bg-gradient-to-r from-pink-600 to-purple-800 px-14 py-8">
+          <div className="flex justify-between items-center">
+            <div>
+              <div className="text-secondary">Prize #96</div>
+              <div className="text-white text-5xl font-semibold">$69,420</div>
             </div>
-            <Countdown
-              countDownDate={new Date("Oct 12, 2021 15:37:25").getTime()}
-            />
+            <div>
+              <div className="text-secondary text-lg mb-2 font-extralight">
+                Will be awarded
+              </div>
+              <Countdown
+                countDownDate={new Date("Oct 12, 2021 15:37:25").getTime()}
+              />
+            </div>
+          </div>
+          <div className="my-3 bg-clip-border bg-gray-400 my-8">
+            <hr className="border-opacity-0" />
+          </div>
+          <div className="flex justify-between items-center">
+            <div>
+              <div className="text-secondary">Your deposit</div>
+              <div className="text-white text-3xl font-semibold">$435</div>
+            </div>
+            <div
+              onClick={() => setShowWithdrawModal(true)}
+              className={
+                "rounded-full border-2 border-accent text-xl px-8 py-2 font-semibold cursor-pointer hover:bg-accent hover:text-primary " +
+                (showWithdrawModal ? "bg-accent text-primary" : "text-accent")
+              }
+            >
+              Withdraw
+            </div>
           </div>
         </div>
         <div className="mt-8 rounded-lg bg-purple-900 p-8">
@@ -191,8 +213,17 @@ function App() {
           </table>
         </div>
       </div>
-      {showModal && (
-        <DepositModal close={() => setShowModal(false)} depositAmount={69420} />
+      {showDepositModal && (
+        <DepositModal
+          close={() => setShowDepositModal(false)}
+          depositAmount={69420}
+        />
+      )}
+      {showWithdrawModal && (
+        <WithdrawModal
+          close={() => setShowWithdrawModal(false)}
+          currentDeposit={435}
+        />
       )}
     </div>
   );
