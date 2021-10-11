@@ -9,6 +9,7 @@ export default function DepositModal({ close, depositAmount }) {
 
   const supplyToCompound = () => {
     main();
+    console.log("Called successfully");
   }
 
   return (

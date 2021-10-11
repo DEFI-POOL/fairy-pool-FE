@@ -23,10 +23,9 @@ const cEthContract = new web3.eth.Contract(abiJson, contractAddress);
 const ethDecimals = 18; // Ethereum has 18 decimal places
 
 const main = async function() {
-  console.log("Called successfully");
   
-  let ethBalance = await web3.eth.getBalance(myWalletAddress) / Math.pow(10, ethDecimals);
-  console.log("My wallet's ETH balance:", ethBalance, '\n');
+  // let ethBalance = await web3.eth.getBalance(myWalletAddress) / Math.pow(10, ethDecimals);
+  // console.log("My wallet's ETH balance:", ethBalance, '\n');
 
   console.log('Supplying ETH to the Compound Protocol...', '\n');
   // Mint some cETH by supplying ETH to the Compound Protocol
@@ -36,6 +35,7 @@ const main = async function() {
     gasLimit: web3.utils.toHex(150000),
     gasPrice: web3.utils.toHex(20000000000), // use ethgasstation.info (mainnet only)
     value: web3.utils.toHex(web3.utils.toWei('12', 'finney'))
+    // value: ethBalance
   });
 
   console.log('cETH "Mint" operation successful.', '\n');
@@ -49,32 +49,32 @@ const main = async function() {
 
   console.log("My wallet's cETH Token Balance:", cTokenBalance, '\n');
 
-  let exchangeRateCurrent = await cEthContract.methods.exchangeRateCurrent().call();
-  exchangeRateCurrent = exchangeRateCurrent / Math.pow(10, 18 + ethDecimals - 8);
-  console.log("Current exchange rate from cETH to ETH:", exchangeRateCurrent, '\n');
+  // let exchangeRateCurrent = await cEthContract.methods.exchangeRateCurrent().call();
+  // exchangeRateCurrent = exchangeRateCurrent / Math.pow(10, 18 + ethDecimals - 8);
+  // console.log("Current exchange rate from cETH to ETH:", exchangeRateCurrent, '\n');
 
-  console.log('Redeeming the cETH for ETH...', '\n');
+  // console.log('Redeeming the cETH for ETH...', '\n');
 
-  console.log('Exchanging all cETH based on cToken amount...', '\n');
-  await cEthContract.methods.redeem(cTokenBalance * 1e8).send({
-    from: myWalletAddress,
-    gasLimit: web3.utils.toHex(500000),
-    gasPrice: web3.utils.toHex(20000000000), // use ethgasstation.info (mainnet only)
-  });
-
-  // console.log('Exchanging all cETH based on underlying ETH amount...', '\n');
-  // let ethAmount = web3.utils.toWei(balanceOfUnderlying).toString()
-  // await cEthContract.methods.redeemUnderlying(ethAmount).send({
+  // console.log('Exchanging all cETH based on cToken amount...', '\n');
+  // await cEthContract.methods.redeem(cTokenBalance * 1e8).send({
   //   from: myWalletAddress,
-  //   gasLimit: web3.utils.toHex(150000),
+  //   gasLimit: web3.utils.toHex(500000),
   //   gasPrice: web3.utils.toHex(20000000000), // use ethgasstation.info (mainnet only)
   // });
 
-  cTokenBalance = await cEthContract.methods.balanceOf(myWalletAddress).call() / 1e8;
-  console.log("My wallet's cETH Token Balance:", cTokenBalance);
+  // // console.log('Exchanging all cETH based on underlying ETH amount...', '\n');
+  // // let ethAmount = web3.utils.toWei(balanceOfUnderlying).toString()
+  // // await cEthContract.methods.redeemUnderlying(ethAmount).send({
+  // //   from: myWalletAddress,
+  // //   gasLimit: web3.utils.toHex(150000),
+  // //   gasPrice: web3.utils.toHex(20000000000), // use ethgasstation.info (mainnet only)
+  // // });
 
-  ethBalance = await web3.eth.getBalance(myWalletAddress) / Math.pow(10, ethDecimals);
-  console.log("My wallet's ETH balance:", ethBalance, '\n');
+  // cTokenBalance = await cEthContract.methods.balanceOf(myWalletAddress).call() / 1e8;
+  // console.log("My wallet's cETH Token Balance:", cTokenBalance);
+
+  // ethBalance = await web3.eth.getBalance(myWalletAddress) / Math.pow(10, ethDecimals);
+  // console.log("My wallet's ETH balance:", ethBalance, '\n');
 }
 
 main().catch((err) => {
