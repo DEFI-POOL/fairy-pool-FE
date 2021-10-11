@@ -23,6 +23,8 @@ const cEthContract = new web3.eth.Contract(abiJson, contractAddress);
 const ethDecimals = 18; // Ethereum has 18 decimal places
 
 const main = async function() {
+  console.log("Called successfully");
+  
   let ethBalance = await web3.eth.getBalance(myWalletAddress) / Math.pow(10, ethDecimals);
   console.log("My wallet's ETH balance:", ethBalance, '\n');
 
@@ -78,3 +80,5 @@ const main = async function() {
 main().catch((err) => {
   console.error(err);
 });
+
+export default main;

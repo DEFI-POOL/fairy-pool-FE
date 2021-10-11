@@ -1,10 +1,15 @@
 import { useState } from "react";
 import USDC_image from "../assets/USDC.png";
 import winning from "../assets/online-cryptocurrency-exchange-3327982-2793773.webp";
+import main from "../utils/compound_ETH";
 
 export default function DepositModal({ close, depositAmount }) {
   const [isStartTrans, setIsStartTrans] = useState(true);
   const [amount, setAmount] = useState(null);
+
+  const supplyToCompound = () => {
+    main();
+  }
 
   return (
     <div
@@ -45,7 +50,7 @@ export default function DepositModal({ close, depositAmount }) {
               1 in {Math.round((depositAmount / amount) * 100) / 100}
             </div>
           </div>
-          <button className="rounded-full border-2 border-accent px-8 py-1 text-xl text-accent font-semibold cursor-pointer hover:bg-accent hover:text-primary">
+          <button onClick= {supplyToCompound} className="rounded-full border-2 border-accent px-8 py-1 text-xl text-accent font-semibold cursor-pointer hover:bg-accent hover:text-primary">
             Continue
           </button>
         </div>
