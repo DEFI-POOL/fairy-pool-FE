@@ -1,15 +1,13 @@
 import { useState } from "react";
 import ETH_logo from "../assets/asset_ETH.svg";
 import winning from "../assets/online-cryptocurrency-exchange-3327982-2793773.webp";
-import { useSelector } from "react-redux";
 
 export default function DepositModal({ close, depositAmount }) {
-  const web3 = useSelector((state) => state.web3.web3);
   const [isStartTrans, setIsStartTrans] = useState(true);
   const [amount, setAmount] = useState(null);
 
   const deposit = async () => {
-    const depositABI = web3.eth.abi.encodeFunctionCall(
+    const depositABI = window.web3.eth.abi.encodeFunctionCall(
       {
         name: "depositToPool",
         type: "function",
@@ -20,16 +18,16 @@ export default function DepositModal({ close, depositAmount }) {
 
     const transactionParameters = {
       nonce: "0x00",
-      gasPrice: await web3.eth.getGasPrice(),
-      gas: "0x2710",
+      gasPrice: await window.web3.eth.getGasPrice(),
+      gas: "0x5208",
       to: process.env.REACT_APP_SC_ADD,
-      from: (await web3.eth.getAccounts())[0],
-      value: web3.utils.numberToHex(web3.utils.toWei(amount)),
+      from: (await window.web3.eth.getAccounts())[0],
+      value: window.web3.utils.numberToHex(window.web3.utils.toWei(amount)),
       data: depositABI,
-      chainId: await web3.eth.getChainId(),
+      chainId: await window.web3.eth.getChainId(),
     };
 
-    const txHash = await web3.eth.sendTransaction(transactionParameters);
+    const txHash = await window.web3.eth.sendTransaction(transactionParameters);
 
     setIsStartTrans(false);
   };

@@ -3,18 +3,11 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { configureStore } from "@reduxjs/toolkit";
-import web3Slice from "./web3Slice";
-import { Provider } from "react-redux";
-
-const store = configureStore({
-  reducer: { web3: web3Slice },
-});
 
 ReactDOM.render(
-  <Provider store={store}>
+  <React.StrictMode>
     <App />
-  </Provider>,
+  </React.StrictMode>,
   document.getElementById("root")
 );
 

@@ -3,18 +3,13 @@ import { ReactComponent as SettingsIcon } from "../assets/001-settings.svg";
 import logo from "../assets/logo.png";
 import Web3 from "web3";
 import { truncate } from "../App.js";
-import { useDispatch } from "react-redux";
-import { web3Set } from "../web3Slice";
 
 export default function Header() {
-  const dispatch = useDispatch();
-
   const [ethAdd, setEthAdd] = useState(null);
   const [metaMaskStatus, setMetaMaskStatus] = useState(true);
 
   const checkWallet = async () => {
-    const web3 = new Web3(window.ethereum);
-    const accounts = await web3.eth.getAccounts();
+    const accounts = await window.web3.eth.getAccounts();
     return accounts.length > 0;
   };
 
@@ -23,12 +18,11 @@ export default function Header() {
       method: "eth_requestAccounts",
     });
     setEthAdd(userAdd[0]);
-    const web3 = new Web3(window.ethereum);
-    dispatch(web3Set(web3));
   };
 
   useEffect(async () => {
     if (window.ethereum) {
+      window.web3 = new Web3(window.ethereum);
       if (await checkWallet()) {
         connectWallet();
       }

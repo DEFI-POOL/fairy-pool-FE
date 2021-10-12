@@ -1,15 +1,13 @@
 import { useState } from "react";
 import ETH_logo from "../assets/asset_ETH.svg";
 import winning from "../assets/online-cryptocurrency-exchange-3327982-2793773.webp";
-import { useSelector } from "react-redux";
 
 export default function WithdrawModal({ close, currentDeposit }) {
-  const web3 = useSelector((state) => state.web3.web3);
   const [isStartTrans, setIsStartTrans] = useState(true);
   const [amount, setAmount] = useState(null);
 
   const withdraw = async () => {
-    const withdrawABI = web3.eth.abi.encodeFunctionCall(
+    const withdrawABI = window.web3.eth.abi.encodeFunctionCall(
       {
         name: "withdrawFromPool",
         type: "function",
@@ -20,16 +18,16 @@ export default function WithdrawModal({ close, currentDeposit }) {
 
     const transactionParameters = {
       nonce: "0x00",
-      gasPrice: await web3.eth.getGasPrice(),
-      gas: "0x2710",
+      gasPrice: await window.web3.eth.getGasPrice(),
+      gas: "0x5208",
       to: process.env.REACT_APP_SC_ADD,
-      from: (await web3.eth.getAccounts())[0],
+      from: (await window.web3.eth.getAccounts())[0],
       value: "0x00",
       data: withdrawABI,
-      chainId: await web3.eth.getChainId(),
+      chainId: await window.web3.eth.getChainId(),
     };
 
-    const txHash = await web3.eth.sendTransaction(transactionParameters);
+    const txHash = await window.web3.eth.sendTransaction(transactionParameters);
 
     setIsStartTrans(false);
   };
