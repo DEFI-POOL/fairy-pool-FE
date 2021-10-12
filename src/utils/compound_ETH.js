@@ -1,7 +1,12 @@
 const Web3 = require('web3');
-const HDWalletProvider = require('truffle-hdwallet-provider');
+const HDWalletProvider = require('@truffle/hdwallet-provider');
 
-const web3 = new Web3('');
+const provider = new HDWalletProvider(
+  '',
+  'https://rinkeby.infura.io/v3/050add6623a44cfa8e18696920f181e4'
+)
+
+const web3 = new Web3(provider);
 
 // Your Ethereum wallet private key
 const privateKey = '';
@@ -25,8 +30,8 @@ const ethDecimals = 18; // Ethereum has 18 decimal places
 
 const main = async function() {
   
-  // let ethBalance = await web3.eth.getBalance(myWalletAddress) / Math.pow(10, ethDecimals);
-  // console.log("My wallet's ETH balance:", ethBalance, '\n');
+  let ethBalance = await web3.eth.getBalance(myWalletAddress) / Math.pow(10, ethDecimals);
+  console.log("My wallet's ETH balance:", ethBalance, '\n');
 
   console.log('Supplying ETH to the Compound Protocol...', '\n');
   // Mint some cETH by supplying ETH to the Compound Protocol
@@ -35,7 +40,7 @@ const main = async function() {
     from: myWalletAddress,
     gasLimit: web3.utils.toHex(150000),
     gasPrice: web3.utils.toHex(20000000000), // use ethgasstation.info (mainnet only)
-    value: web3.utils.toHex(web3.utils.toWei('12', 'finney'))
+    value: web3.utils.toHex(web3.utils.toWei('', 'ether'))
     // value: ethBalance
   });
 
