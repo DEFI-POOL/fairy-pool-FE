@@ -1,5 +1,5 @@
 import { useState } from "react";
-import USDC_image from "../assets/USDC.png";
+import ETH_logo from "../assets/asset_ETH.svg";
 import winning from "../assets/online-cryptocurrency-exchange-3327982-2793773.webp";
 
 export default function DepositModal({ close, depositAmount }) {
@@ -22,9 +22,9 @@ export default function DepositModal({ close, depositAmount }) {
         }
         onAnimationEnd={(e) => (isStartTrans ? null : close())}
       >
-        <img src={USDC_image} className="w-14" />
+        <img src={ETH_logo} className="w-14" />
         <div className="text-white font-semibold text-xl mt-2">
-          Deposit into the USDC Pool
+          Deposit into the ETH Pool
         </div>
         <img src={winning} className="w-64 mt-6" />
         <div className="w-full text-accent">Amount</div>

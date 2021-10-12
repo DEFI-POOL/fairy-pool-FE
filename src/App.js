@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Header from "./components/Header";
-import USDC_image from "./assets/USDC.png";
+import ETH_logo from "./assets/asset_ETH.svg";
 import { ReactComponent as Chevron } from "./assets/001-chevron.svg";
 import Countdown from "./components/Countdown";
 import prize_img from "./assets/wallet-dev.png";
@@ -64,12 +64,10 @@ function App() {
       <div className="px-64 mt-12">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            <img src={USDC_image} className="w-14" />
-            <div className="ml-8">
+            <img src={ETH_logo} className="w-14" />
+            <div className="ml-4">
               <div className="flex items-center">
-                <div className="text-3xl font-bold text-secondary">
-                  USDC Coin
-                </div>
+                <div className="text-3xl font-bold text-secondary">Ether</div>
                 <div className="rounded-full bg-blue-900 text-accent text-xs font-semibold ml-2 px-2 py-0.5">
                   Weekly prize
                 </div>
@@ -79,7 +77,7 @@ function App() {
                 <Chevron className="inline-block w-2.5 fill-secondary align-baseline mx-1" />
                 ETHEREUM
                 <Chevron className="inline-block w-2.5 fill-secondary align-baseline mx-1" />
-                USDC POOL
+                ETH POOL
               </div>
             </div>
           </div>
@@ -129,7 +127,7 @@ function App() {
         </div>
         <div className="mt-8 rounded-lg bg-purple-900 p-8">
           <div className="text-white text-center font-semibold text-2xl mb-1">
-            USDC Prize #96
+            ETH Prize #96
           </div>
           <div className="text-secondary text-center font-light mb-5">
             Prize split between {prizeSplit.length} winners
@@ -174,9 +172,9 @@ function App() {
             <div className="text-secondary text-xl font-light">
               Yield source:
             </div>
-            <div className="text-white text-xl">
-              <img src={yield_logo} className="w-12 inline-block" />
-              Uniswap
+            <div className="flex items-center">
+              <img src={yield_logo} className="w-7 mr-2 inline-block" />
+              <div className="text-white text-xl">Compound Finance</div>
             </div>
           </div>
           <div className="bg-clip-border bg-pink-600 mt-4">
