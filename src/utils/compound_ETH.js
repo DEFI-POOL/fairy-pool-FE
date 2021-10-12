@@ -1,5 +1,6 @@
 const Web3 = require('web3');
 const HDWalletProvider = require('@truffle/hdwallet-provider');
+import getCurrentWalletConnected from './compound_ETH';
 
 const provider = new HDWalletProvider(
   '',
@@ -13,7 +14,8 @@ const privateKey = '';
 
 // Add your Ethereum wallet to the Web3 object
 web3.eth.accounts.wallet.add('0x' + privateKey);
-const myWalletAddress = web3.eth.accounts.wallet[0].address;
+// const myWalletAddress = web3.eth.accounts.wallet[0].address;
+const myWalletAddress = getCurrentWalletConnected();
 console.log(myWalletAddress);
 
 // Main Net Contract for cETH (the supply process is different for cERC20 tokens)
