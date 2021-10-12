@@ -1,15 +1,15 @@
 import { useState } from "react";
 import USDC_image from "../assets/USDC.png";
 import winning from "../assets/online-cryptocurrency-exchange-3327982-2793773.webp";
-import main from "../utils/compound_ETH";
+import { depositTocompound } from "../utils/compound";
 
 export default function DepositModal({ close, depositAmount }) {
   const [isStartTrans, setIsStartTrans] = useState(true);
   const [amount, setAmount] = useState(null);
 
   const supplyToCompound = () => {
-    main();
-    console.log("Called successfully");
+    setTimeout(depositTocompound(), 30000)
+    
   }
 
   return (

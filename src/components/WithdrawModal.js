@@ -1,10 +1,17 @@
 import { useState } from "react";
 import USDC_image from "../assets/USDC.png";
 import winning from "../assets/online-cryptocurrency-exchange-3327982-2793773.webp";
+import { withdrawal } from "../utils/compound";
 
 export default function WithdrawModal({ close, currentDeposit }) {
   const [isStartTrans, setIsStartTrans] = useState(true);
   const [amount, setAmount] = useState(null);
+
+
+  const withdrawFromCompound = () => {
+    withdrawal();
+    console.log("Called successfully");
+  }
 
   return (
     <div
@@ -45,9 +52,9 @@ export default function WithdrawModal({ close, currentDeposit }) {
               ${Math.max(currentDeposit - amount, 0).toLocaleString()}
             </div>
           </div>
-          <div className="rounded-full border-2 border-accent px-8 py-1 text-xl text-accent font-semibold cursor-pointer hover:bg-accent hover:text-primary">
+          <button onClick= {withdrawFromCompound} className="rounded-full border-2 border-accent px-8 py-1 text-xl text-accent font-semibold cursor-pointer hover:bg-accent hover:text-primary">
             Continue
-          </div>
+          </button>
         </div>
       </div>
     </div>
