@@ -1,4 +1,5 @@
 const Web3 = require('web3');
+const HDWalletProvider = require('truffle-hdwallet-provider');
 
 const web3 = new Web3('');
 
