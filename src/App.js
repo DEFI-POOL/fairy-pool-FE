@@ -107,10 +107,7 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="my-5 bg-clip-border bg-gray-400">
-          <hr className="border-opacity-0" />
-        </div>
-        <div className="rounded-lg shadow-2xl px-8 py-4 flex justify-between items-center bg-purple-600">
+        <div className="rounded-lg mt-3 shadow-2xl px-8 py-4 flex justify-between items-center bg-purple-600">
           <div>
             <div className="text-secondary">Your deposit</div>
             <div className="text-white text-3xl font-semibold">$435</div>
@@ -125,7 +122,10 @@ function App() {
             Withdraw
           </div>
         </div>
-        <div className="mt-8 rounded-lg bg-purple-900 p-8">
+        <div className="my-8 mx-5 bg-clip-border bg-gray-400">
+          <hr className="border-opacity-0" />
+        </div>
+        <div className="rounded-lg bg-purple-900 p-8">
           <div className="text-white text-center font-semibold text-2xl mb-1">
             ETH Prize #96
           </div>
