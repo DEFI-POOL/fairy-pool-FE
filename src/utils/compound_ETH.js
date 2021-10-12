@@ -1,7 +1,6 @@
+const Web3 = require('web3');
 
-// const Web3 = require('web3');
-
-// const web3 = new Web3('');
+const web3 = new Web3('');
 
 // Your Ethereum wallet private key
 const privateKey = '';
