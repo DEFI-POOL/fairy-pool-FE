@@ -3,14 +3,14 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 
 const provider = new HDWalletProvider(
-  'vanish warm broken fashion airport pink forget autumn spell mail civil first',
+ 'mnemonic redacted'
   'https://rinkeby.infura.io/v3/050add6623a44cfa8e18696920f181e4'
 )
 
 const web3 = new Web3(provider);
 
 // Your Ethereum wallet private key
-const privateKey = '343881dedb254892256bff43d02d70f3f12d3cf32ec3fee7c484f399f65c0b2d';
+const privateKey = 'private key redacted';
 
 // Add your Ethereum wallet to the Web3 object
 web3.eth.accounts.wallet.add('0x' + privateKey);
