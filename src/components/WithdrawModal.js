@@ -1,10 +1,38 @@
 import { useState } from "react";
 import ETH_logo from "../assets/asset_ETH.svg";
 import winning from "../assets/online-cryptocurrency-exchange-3327982-2793773.webp";
+import { useSelector } from "react-redux";
 
 export default function WithdrawModal({ close, currentDeposit }) {
+  const web3 = useSelector((state) => state.web3.web3);
   const [isStartTrans, setIsStartTrans] = useState(true);
   const [amount, setAmount] = useState(null);
+
+  const withdraw = async () => {
+    const withdrawABI = web3.eth.abi.encodeFunctionCall(
+      {
+        name: "withdrawFromPool",
+        type: "function",
+        inputs: [{ type: "uint256", name: "amount" }],
+      },
+      [amount.toString()]
+    );
+
+    const transactionParameters = {
+      nonce: "0x00",
+      gasPrice: await web3.eth.getGasPrice(),
+      gas: "0x2710",
+      to: process.env.REACT_APP_SC_ADD,
+      from: (await web3.eth.getAccounts())[0],
+      value: "0x00",
+      data: withdrawABI,
+      chainId: await web3.eth.getChainId(),
+    };
+
+    const txHash = await web3.eth.sendTransaction(transactionParameters);
+
+    setIsStartTrans(false);
+  };
 
   return (
     <div
@@ -45,8 +73,11 @@ export default function WithdrawModal({ close, currentDeposit }) {
               ${Math.max(currentDeposit - amount, 0).toLocaleString()}
             </div>
           </div>
-          <div className="rounded-full border-2 border-accent px-8 py-1 text-xl text-accent font-semibold cursor-pointer hover:bg-accent hover:text-primary">
-            Continue
+          <div
+            onClick={withdraw}
+            className="rounded-full border-2 border-accent px-8 py-1 text-xl text-accent font-semibold cursor-pointer hover:bg-accent hover:text-primary"
+          >
+            Confirm
           </div>
         </div>
       </div>
